@@ -1,7 +1,13 @@
+using System;
+
+using System.Data.SqlClient;
+
 namespace InventoryApp
 {
     public partial class Login : Form
+
     {
+        SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Gifty\\Documents\\Inventorydb.mdf;Integrated Security=True;Connect Timeout=30"); 
         public Login()
         {
             InitializeComponent();
@@ -29,9 +35,7 @@ namespace InventoryApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            HomeScreen screen1 = new HomeScreen(); 
-            screen1.Show();
-            this.Hide();
+            
         }
 
         private void maskedTextBox2_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
