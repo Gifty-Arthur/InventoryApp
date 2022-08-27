@@ -1,14 +1,15 @@
 using System;
-
+using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace InventoryApp
 {
-    public partial class Login : Form
+    public partial class AdminLogin : Form
 
     {
-        SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Gifty\\Documents\\Inventorydb.mdf;Integrated Security=True;Connect Timeout=30"); 
-        public Login()
+        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Gifty\Documents\Inventorydb.mdf;Integrated Security=True;Connect Timeout=30"); 
+        public AdminLogin()
         {
             InitializeComponent();
         }
@@ -35,7 +36,21 @@ namespace InventoryApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            Con.Open();
+            SqlDataAdapter sda = new SqlDataAdapter("Select Count(*) from UserTbl where Uname='"+UnameTxtBox.Text+"' and Upassword='"+PassTxtBox.Text+"'", Con);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            if (dt.Rows[0][0].ToString() == "1")
+            {
+                HomeScreen users = new HomeScreen();
+                users.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Wrong Username or Password");
+            }
+            Con.Close();
         }
 
         private void maskedTextBox2_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
@@ -52,16 +67,46 @@ namespace InventoryApp
         {
             if (checkBox1.Checked == true)
             {
-                textBox2.UseSystemPasswordChar = false;
+                PassTxtBox.UseSystemPasswordChar = false;
             } 
             else
             {
-                textBox2.UseSystemPasswordChar = true;
+                PassTxtBox.UseSystemPasswordChar = true;
             }
                 
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint_2(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint_3(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
         {
 
         }
