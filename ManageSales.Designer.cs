@@ -45,6 +45,7 @@
             this.TotAmount = new System.Windows.Forms.Label();
             this.InsBtn = new System.Windows.Forms.Button();
             this.ViewBtn = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProductsGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OrderGv)).BeginInit();
@@ -62,6 +63,7 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(836, 96);
             this.panel4.TabIndex = 12;
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // label3
             // 
@@ -83,6 +85,7 @@
             this.label4.Size = new System.Drawing.Size(545, 39);
             this.label4.TabIndex = 1;
             this.label4.Text = "INVENTORY MANAGEMENT SYSTEM";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -105,6 +108,7 @@
             this.SearchCombo.Size = new System.Drawing.Size(148, 25);
             this.SearchCombo.TabIndex = 25;
             this.SearchCombo.Text = "Select Category";
+            this.SearchCombo.SelectedIndexChanged += new System.EventHandler(this.SearchCombo_SelectedIndexChanged);
             this.SearchCombo.SelectionChangeCommitted += new System.EventHandler(this.SearchCombo_SelectionChangeCommitted);
             // 
             // ProductsGV
@@ -122,7 +126,6 @@
             this.ProductsGV.Location = new System.Drawing.Point(247, 133);
             this.ProductsGV.Name = "ProductsGV";
             this.ProductsGV.ReadOnly = true;
-            this.ProductsGV.RowHeadersVisible = false;
             this.ProductsGV.RowTemplate.Height = 25;
             this.ProductsGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ProductsGV.Size = new System.Drawing.Size(568, 203);
@@ -136,6 +139,7 @@
             this.OrdIdTxt.PlaceholderText = "Order ID";
             this.OrdIdTxt.Size = new System.Drawing.Size(158, 23);
             this.OrdIdTxt.TabIndex = 26;
+            this.OrdIdTxt.TextChanged += new System.EventHandler(this.OrdIdTxt_TextChanged);
             // 
             // label1
             // 
@@ -146,15 +150,18 @@
             this.label1.Size = new System.Drawing.Size(92, 20);
             this.label1.TabIndex = 28;
             this.label1.Text = "Order Date";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // OrdDate
             // 
             this.OrdDate.CustomFormat = "YYYYMMDD";
+            this.OrdDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.OrdDate.Location = new System.Drawing.Point(12, 275);
             this.OrdDate.Name = "OrdDate";
             this.OrdDate.Size = new System.Drawing.Size(200, 23);
             this.OrdDate.TabIndex = 29;
             this.OrdDate.Value = new System.DateTime(2022, 8, 27, 16, 11, 20, 0);
+            this.OrdDate.ValueChanged += new System.EventHandler(this.OrdDate_ValueChanged);
             // 
             // QtyTxt
             // 
@@ -163,6 +170,7 @@
             this.QtyTxt.PlaceholderText = "Order Quantity";
             this.QtyTxt.Size = new System.Drawing.Size(158, 23);
             this.QtyTxt.TabIndex = 30;
+            this.QtyTxt.TextChanged += new System.EventHandler(this.QtyTxt_TextChanged);
             // 
             // label2
             // 
@@ -173,6 +181,7 @@
             this.label2.Size = new System.Drawing.Size(71, 20);
             this.label2.TabIndex = 31;
             this.label2.Text = "Quantity";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // btnAdd
             // 
@@ -213,6 +222,7 @@
             this.label6.Size = new System.Drawing.Size(164, 27);
             this.label6.TabIndex = 34;
             this.label6.Text = "Total Amount";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // TotAmount
             // 
@@ -229,7 +239,7 @@
             // 
             this.InsBtn.BackColor = System.Drawing.Color.ForestGreen;
             this.InsBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.InsBtn.Location = new System.Drawing.Point(12, 606);
+            this.InsBtn.Location = new System.Drawing.Point(12, 577);
             this.InsBtn.Name = "InsBtn";
             this.InsBtn.Size = new System.Drawing.Size(104, 32);
             this.InsBtn.TabIndex = 36;
@@ -241,18 +251,32 @@
             // 
             this.ViewBtn.BackColor = System.Drawing.Color.ForestGreen;
             this.ViewBtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ViewBtn.Location = new System.Drawing.Point(122, 606);
+            this.ViewBtn.Location = new System.Drawing.Point(122, 577);
             this.ViewBtn.Name = "ViewBtn";
             this.ViewBtn.Size = new System.Drawing.Size(104, 32);
             this.ViewBtn.TabIndex = 37;
             this.ViewBtn.Text = "View Orders";
             this.ViewBtn.UseVisualStyleBackColor = false;
+            this.ViewBtn.Click += new System.EventHandler(this.ViewBtn_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.ForestGreen;
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.Location = new System.Drawing.Point(75, 626);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(104, 32);
+            this.button1.TabIndex = 38;
+            this.button1.Text = "Home";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // ManageSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(836, 670);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.ViewBtn);
             this.Controls.Add(this.InsBtn);
             this.Controls.Add(this.TotAmount);
@@ -269,6 +293,7 @@
             this.Controls.Add(this.panel4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ManageSales";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ManageSales";
             this.Load += new System.EventHandler(this.ManageSales_Load);
             this.panel4.ResumeLayout(false);
@@ -299,5 +324,6 @@
         private Label TotAmount;
         private Button InsBtn;
         private Button ViewBtn;
+        private Button button1;
     }
 }

@@ -228,5 +228,11 @@ namespace InventoryApp
 
         }
 
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            AdminHome hm = new AdminHome();
+            hm.Show();
+            this.Close();
+        }
     }
 }

@@ -14,25 +14,6 @@ namespace InventoryApp
             InitializeComponent();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -40,11 +21,18 @@ namespace InventoryApp
             SqlDataAdapter sda = new SqlDataAdapter("Select Count(*) from UserTbl where Uname='"+UnameTxtBox.Text+"' and Upassword='"+PassTxtBox.Text+"'", Con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
-            if (dt.Rows[0][0].ToString() == "1")
+            if (dt.Rows[0][0].ToString() == "1" && adminBox.Checked == true)
             {
-                HomeScreen users = new HomeScreen();
-                users.Show();
+                AdminHome admin = new AdminHome();
+                admin.Show();
                 this.Hide();
+            }
+            else if (dt.Rows[0][0].ToString() == "1" && attendantBox.Checked == true)
+            {
+                AttendantHome attendant = new AttendantHome();
+                attendant.Show();
+                this.Hide();
+     
             }
             else
             {
@@ -53,15 +41,6 @@ namespace InventoryApp
             Con.Close();
         }
 
-        private void maskedTextBox2_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
@@ -76,6 +55,15 @@ namespace InventoryApp
                 
         }
 
+
+
+
+
+
+
+
+
+        //unused snippets
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -107,6 +95,26 @@ namespace InventoryApp
         }
 
         private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }

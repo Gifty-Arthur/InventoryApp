@@ -106,11 +106,18 @@ namespace InventoryApp
                 Con.Close();
                 populate();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 throw;
             }
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            AdminHome hm = new AdminHome();
+            hm.Show();
+            this.Close();
         }
     }
 }

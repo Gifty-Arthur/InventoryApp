@@ -35,6 +35,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.PassTxtBox = new System.Windows.Forms.TextBox();
+            this.adminBox = new System.Windows.Forms.CheckBox();
+            this.attendantBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -42,7 +44,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(547, 140);
+            this.label1.Location = new System.Drawing.Point(611, 141);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(66, 30);
             this.label1.TabIndex = 0;
@@ -70,7 +72,7 @@
             this.checkBox1.BackColor = System.Drawing.Color.Blue;
             this.checkBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.checkBox1.ForeColor = System.Drawing.Color.White;
-            this.checkBox1.Location = new System.Drawing.Point(488, 273);
+            this.checkBox1.Location = new System.Drawing.Point(585, 258);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(123, 20);
             this.checkBox1.TabIndex = 5;
@@ -92,7 +94,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("MV Boli", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.Blue;
-            this.label4.Location = new System.Drawing.Point(488, 29);
+            this.label4.Location = new System.Drawing.Point(547, 33);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(184, 41);
             this.label4.TabIndex = 2;
@@ -120,6 +122,32 @@
             this.PassTxtBox.UseSystemPasswordChar = true;
             this.PassTxtBox.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
+            // adminBox
+            // 
+            this.adminBox.AutoSize = true;
+            this.adminBox.BackColor = System.Drawing.Color.Blue;
+            this.adminBox.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.adminBox.ForeColor = System.Drawing.Color.White;
+            this.adminBox.Location = new System.Drawing.Point(502, 319);
+            this.adminBox.Name = "adminBox";
+            this.adminBox.Size = new System.Drawing.Size(108, 20);
+            this.adminBox.TabIndex = 9;
+            this.adminBox.Text = "Admin Login";
+            this.adminBox.UseVisualStyleBackColor = false;
+            // 
+            // attendantBox
+            // 
+            this.attendantBox.AutoSize = true;
+            this.attendantBox.BackColor = System.Drawing.Color.Blue;
+            this.attendantBox.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.attendantBox.ForeColor = System.Drawing.Color.White;
+            this.attendantBox.Location = new System.Drawing.Point(677, 319);
+            this.attendantBox.Name = "attendantBox";
+            this.attendantBox.Size = new System.Drawing.Size(129, 20);
+            this.attendantBox.TabIndex = 10;
+            this.attendantBox.Text = "Attendant Login";
+            this.attendantBox.UseVisualStyleBackColor = false;
+            // 
             // AdminLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -127,6 +155,8 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(878, 532);
+            this.Controls.Add(this.attendantBox);
+            this.Controls.Add(this.adminBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.checkBox1);
@@ -145,8 +175,8 @@
         }
 
         #endregion
-        private MaskedTextBox maskedTextBox1;
-        private MaskedTextBox maskedTextBox2;
+        //private MaskedTextBox maskedTextBox1;
+        //private MaskedTextBox maskedTextBox2;
         private Label label1;
         private Button button1;
         private CheckBox checkBox1;
@@ -154,5 +184,7 @@
         private Label label4;
         private Panel panel1;
         private TextBox PassTxtBox;
+        private CheckBox adminBox;
+        private CheckBox attendantBox;
     }
 }

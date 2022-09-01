@@ -11,22 +11,14 @@ using System.Data.SqlClient;
 
 namespace InventoryApp
 {
-    public partial class HomeScreen : Form
+    public partial class AdminHome : Form
     {
-        public HomeScreen()
+        public AdminHome()
         {
             InitializeComponent();
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -35,10 +27,7 @@ namespace InventoryApp
             this.Hide();
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -68,6 +57,40 @@ namespace InventoryApp
             this.Hide();
         }
 
+
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            AdminLogin log = new AdminLogin();
+            log.Show();
+            this.Hide();
+        }
+
+
+
+
+
+
+
+
+
+
+        //unused snippets
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void HomeScreen_Load(object sender, EventArgs e)
         {
 
@@ -93,21 +116,20 @@ namespace InventoryApp
 
         }
 
-        private void button3_Click_1(object sender, EventArgs e)
-        {
-            AdminLogin admin = new AdminLogin();
-            admin.Show();
-            this.Hide();
-        }
-
-        private void label5_Click(object sender, EventArgs e)
+        private void label4_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label7_Click(object sender, EventArgs e)
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
     }
 }

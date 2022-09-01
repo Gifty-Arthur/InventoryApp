@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -32,10 +33,8 @@ namespace InventoryApp
                 da.Fill(ds);
                 ProductsGV.DataSource = ds.Tables[0];
                 Con.Close();
-
-
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 throw;
@@ -60,7 +59,7 @@ namespace InventoryApp
                 SearchCombo.DataSource = dt;
                 Con.Close();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 throw;
@@ -68,19 +67,24 @@ namespace InventoryApp
         }
         void updateproduct()
         {
-            Con.Open();
+            //Con.Open();
             int id = Convert.ToInt32(ProductsGV.SelectedRows[0].Cells[0].Value.ToString());
             int newQty = stock - Convert.ToInt32(QtyTxt.Text);
             if (newQty < 0)
+            {
                 MessageBox.Show("Operation Failed");
+            }   
             else
             {
+                Con.Open();
                 string query = "update ProductTbl set ProdQty = " + newQty + " where ProdId = " + id + ";";
                 SqlCommand cmd = new SqlCommand(query, Con);
+               
                 cmd.ExecuteNonQuery();
                 Con.Close();
                 populateproducts();
             }
+            //Con.Close();
            
         }
 
@@ -92,6 +96,13 @@ namespace InventoryApp
         {
             populateproducts();
             fillcategory();
+            table.Columns.Add("Num", typeof(int));
+            table.Columns.Add("Product", typeof(string));
+            table.Columns.Add("Qty", typeof(int));
+            table.Columns.Add("UPrice", typeof(int));
+            table.Columns.Add("TotPrice", typeof(int));
+            OrderGv.DataSource = table; 
+
         }
 
         int flag = 0;
@@ -128,11 +139,7 @@ namespace InventoryApp
                 num = num + 1;
                 qty = Convert.ToInt32(QtyTxt.Text);
                 totprice = qty * uprice;
-                table.Columns.Add("Num", typeof(int));
-                table.Columns.Add("Product", typeof(string));
-                table.Columns.Add("Qty", typeof(int));
-                table.Columns.Add("UPrice", typeof(int));
-                table.Columns.Add("TotPrice", typeof(int));
+               
                 table.Rows.Add(num, product, qty, uprice, totprice);
                 OrderGv.DataSource = table;
                 flag = 0;
@@ -142,20 +149,7 @@ namespace InventoryApp
             updateproduct();
         }
 
-        private void OrderGv_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void InsBtn_Click(object sender, EventArgs e)
         {
@@ -175,7 +169,7 @@ namespace InventoryApp
                     Con.Close();
                     //populate();
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
 
                     throw;
@@ -203,11 +197,99 @@ namespace InventoryApp
 
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 throw;
             }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //unused snippets
+        private void OrderGv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SearchCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OrdIdTxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OrdDate_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void QtyTxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ViewBtn_Click(object sender, EventArgs e)
+        {
+            ViewSales view = new ViewSales();
+            view.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AdminHome hm = new AdminHome();
+            hm.Show();
+            this.Dispose();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
